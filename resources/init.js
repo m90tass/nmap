@@ -397,7 +397,10 @@
       const popup = $(".nk-portal-local .nk-popup");
       popup.find(".nk-popup__content").text(text);
 
-      const top = element[0].offsetHeight + element.offset().top + 5;
+      let top = element[0].offsetHeight + element.offset().top + 5;
+      if (element.parent().hasClass("nk-map-bottom-controls-view")) {
+        top = element.offset().top - popup.height() - 5;
+      }
       let left = window.innerWidth - (window.innerWidth - element.offset().left);
 
       const innerWidth = popup.width() + left;
