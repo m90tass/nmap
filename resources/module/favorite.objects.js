@@ -251,8 +251,8 @@
       const info = settingFavoriteObjects["user-objects"][name];
       const saveName = info.rubric ? info.rubric : info.object;
 
-      parent.append('<a href="#!/create"><div class="nk-geoobject-icon nk-geoobject-icon_id_'+ info.icon + '" data-name="' + saveName + '"></div></a>');
-      const button = parent.find('.nk-geoobject-icon_id_' + info.icon + '[data-name="' + saveName + '"]');
+      parent.append('<a href="#!/create"><div class="nk-geoobject-icon nk-geoobject-icon_id_' + name + '" data-name="' + saveName + '"></div></a>');
+      const button = parent.find('.nk-geoobject-icon_id_' + name + '[data-name="' + saveName + '"]');
 
       const popup = info.rubric ? info.rubric : info.object;
       popupShow(button, popup);
@@ -260,7 +260,7 @@
       // Добавим событие клика на кнопку для открытия меню создания
       button.on("click", () => {
         setTimeout(() => {
-          if (info.categoryId == "rd_el") {
+          /*if (info.categoryId == "rd_el") {
             // Дороги
             creatRd(info.icon);
           }else if (info.categoryId == "bld") {
@@ -275,7 +275,7 @@
           }else if (info.categoryId == "hydro") {
             // Гидрография
             creatHydro(info.icon);
-          }else {
+          }else {*/
             setTimeout(() => {
               const input = $(".nk-sidebar-view:not(.nk-geoobject-viewer-view):not([style]) .nk-suggest .nk-text-input__control");
               input.val(saveName);
@@ -290,7 +290,7 @@
                 window.appChrome.triggerClick($(".nk-sidebar-view:not(.nk-geoobject-viewer-view):not([style]) .nk-suggest  .nk-suggest__item"));
               }, 800);
             }, 15);
-          }
+          //}
         }, 15);
       });
     }
